@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html >
+<head>
+  <title>Employee Details App</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+  </script>
+
+</head>
+
+<body>
+  <div class = "container" ng-app="mainApp" ng-controller="AppCtrl">
+    <h1>Employee Details</h1>
+
+    <table class ="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Contact No</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input class="form-control" ng-model="employee.name"></input></td>
+          <td><input class="form-control" ng-model="employee.age"></input></td>
+          <td><input class="form-control" ng-model="employee.contact"></input></td>
+          <td><button class="btn btn-primary" ng-click="addEmployee()" ng-hide="flag">Add Employee</button></td>
+          <td><button class="btn btn-primary" ng-click="updateEmployee()" ng-show="flag">Update</button></td>
+        </tr>
+        <tr ng-repeat="emp in empList">
+          <td>{{emp.name}}</td>
+          <td>{{emp.age}}</td>
+          <td>{{emp.contact}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="deleteEmployee(emp)">Delete</button>
+            <button class="btn btn-info" ng-click="getEmployee(emp)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<script src="controllers/controller.js"></script>
+
+</body>
+</html>
